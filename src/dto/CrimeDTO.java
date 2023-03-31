@@ -28,8 +28,8 @@ public interface CrimeDTO {
 
 	public void setComplaint_date(LocalDate complaint_date);
 
-	public String getVictim_date();
+	public String getVictim_name();
 
-	public void setVictim_date(String victim_date);
+	public void setVictim_name(String victim_name);
 
 }

@@ -10,10 +10,10 @@ public class CrimeImplDTO implements CrimeDTO {
 	private String ps_area;
 	private LocalDate crime_date;
 	private LocalDate complaint_date;
-	private String victim_date;
+	private String victim_name;
 
 	public CrimeImplDTO(String crime_id, int crime_type, String crime_desc, String ps_area, LocalDate crime_date,
-			LocalDate complaint_date, String victim_date) {
+			LocalDate complaint_date, String victim_name) {
 		super();
 		this.crime_id = crime_id;
 		this.crime_type = crime_type;
@@ -21,7 +21,7 @@ public class CrimeImplDTO implements CrimeDTO {
 		this.ps_area = ps_area;
 		this.crime_date = crime_date;
 		this.complaint_date = complaint_date;
-		this.victim_date = victim_date;
+		this.victim_name = victim_name;
 	}
 
 	public String getCrime_id() {
@@ -72,19 +72,19 @@ public class CrimeImplDTO implements CrimeDTO {
 		this.complaint_date = complaint_date;
 	}
 
-	public String getVictim_date() {
-		return victim_date;
+	public String getVictim_name() {
+		return victim_name;
 	}
 
-	public void setVictim_date(String victim_date) {
-		this.victim_date = victim_date;
+	public void setVictim_name(String victim_name) {
+		this.victim_name = victim_name;
 	}
 
 	@Override
 	public String toString() {
 		return "crime_id = " + crime_id + ", crime_type = " + crime_type + ", crime_desc = " + crime_desc
 				+ ", ps_area = " + ps_area + ", crime_date = " + crime_date + ", complaint_date = " + complaint_date
-				+ ", victim_date = " + victim_date;
+				+ ", victim_date = " + victim_name;
 	}
 
 }
