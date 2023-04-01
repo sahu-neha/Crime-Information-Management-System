@@ -2,13 +2,14 @@
 <h1 align="center">Crime Net - Crime Information Management System</h1>
 <!-- <div align="center"><img src="https://user-images.githubusercontent.com/108060013/221414653-f9a06405-1a1e-4b5e-a1f6-e361f4589574.png"></div>
  [CIMS](https://imgur.com/RRZpzB3) -->
+<!--  https://imgur.com/LjBK77c -->
 
 <br>
 
 ## Introduction
 
-<p> Crime Information Management System (CIMS) is a software which can help in storing the records related to the criminals, cases, complaint and so on. </p>
-<p> Primary goal of CIMS is that Admin can assign any particular crime to any criminal by maintaining a many to many relationship. This can also allow a person to file a new complaint. All these records can be maintained in a single database. </p>
+> <p> Crime Information Management System (CIMS) is a software which can help in storing the records related to the criminals, cases, complaint and so on. </p>
+> <p> Primary goal of CIMS is that Admin can assign any particular crime to any criminal by maintaining a many to many relationship. It also allows a person to file a new complaint. All these records can be maintained in a single database. </p>
 <br>
 
 ## Key Features
@@ -35,7 +36,6 @@
     <li> Search a Criminal By Name </li>
     <li> Search Crime By Description </li>
     <li> File a New Complaint </li>
-    <li> Log Out </li>
 </ol>
 <br>
     
@@ -47,7 +47,7 @@
 
 ## Tools
 
-- STS
+- Eclipse STS
 - Git
 - Github
 
