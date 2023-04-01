@@ -42,7 +42,7 @@ public class CriminalImplDAO implements CriminalDAO {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing went wrong");
+				throw new SomethingWentWrongException("Something went wrong");
 			}
 		}
 
@@ -77,7 +77,7 @@ public class CriminalImplDAO implements CriminalDAO {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing went wrong");
+				throw new SomethingWentWrongException("Something went wrong");
 			}
 		}
 
@@ -107,7 +107,7 @@ public class CriminalImplDAO implements CriminalDAO {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing went wrong, Unable to delete the criminal record.");
+				throw new SomethingWentWrongException("Something went wrong, Unable to delete the criminal record.");
 			}
 		}
 
@@ -116,8 +116,7 @@ public class CriminalImplDAO implements CriminalDAO {
 	// -------------------------------------------------------//
 
 	@Override
-	public List<String> searchCriminalByName(String fname, String lname)
-			throws SomethingWentWrongException, NoDataFoundException {
+	public List<String> searchCriminalByName(String fname) throws SomethingWentWrongException, NoDataFoundException {
 
 		List<String> criminals = new ArrayList<>();
 
@@ -126,10 +125,9 @@ public class CriminalImplDAO implements CriminalDAO {
 			c = DBUtils.getConnectionToDB();
 
 			PreparedStatement ps = c.prepareStatement(
-					"select fname, lname, dob, gender, identifying_mark, first_arrest_date, arrested_from_ps_area from criminal where fname=?, lname=?");
+					"select fname, lname, dob, gender, identifying_mark, first_arrest_date, arrested_from_ps_area from criminal where fname=?");
 
 			ps.setString(1, fname);
-			ps.setString(2, lname);
 
 			ResultSet rs = ps.executeQuery();
 
@@ -146,15 +144,16 @@ public class CriminalImplDAO implements CriminalDAO {
 						+ ", Arrested From Police Station Area : " + rs.getString(7);
 				criminals.add(un);
 			}
+
 			return criminals;
 
 		} catch (ClassNotFoundException | SQLException | NoDataFoundException e) {
-			throw new SomethingWentWrongException("Something went wrong");
+			throw new NoDataFoundException("No Record Found");
 		} finally {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing went wrong");
+				throw new SomethingWentWrongException("something went wrong");
 			}
 		}
 

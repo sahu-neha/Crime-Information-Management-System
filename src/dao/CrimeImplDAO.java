@@ -42,7 +42,7 @@ public class CrimeImplDAO implements CrimeDAO {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing went wrong");
+				throw new SomethingWentWrongException("Something went wrong");
 			}
 		}
 
@@ -76,7 +76,7 @@ public class CrimeImplDAO implements CrimeDAO {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing went wrong");
+				throw new SomethingWentWrongException("Something went wrong");
 			}
 		}
 
@@ -106,7 +106,7 @@ public class CrimeImplDAO implements CrimeDAO {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing went wrong, Unable to Delete the crime record.");
+				throw new SomethingWentWrongException("Something went wrong, Unable to Delete the crime record.");
 			}
 		}
 
@@ -127,6 +127,9 @@ public class CrimeImplDAO implements CrimeDAO {
 			PreparedStatement ps = c.prepareStatement(
 					"select count(*) Total_Crime, ps_area Police_Station_Area from crime where is_deleted = false && crime_date between ? and ? group by ps_area");
 
+			ps.setDate(1, Date.valueOf(startDate));
+			ps.setDate(2, Date.valueOf(enddate));
+
 			ResultSet rs = ps.executeQuery();
 
 			if (DBUtils.isResultSetEmpty(rs)) {
@@ -140,7 +143,7 @@ public class CrimeImplDAO implements CrimeDAO {
 			return list;
 
 		} catch (ClassNotFoundException | SQLException e) {
-			throw new SomethingWentWrongException("Somerthing went wrong !");
+			throw new SomethingWentWrongException("Something went wrong !");
 		} finally {
 			try {
 				DBUtils.closeConnection(c);
@@ -166,6 +169,9 @@ public class CrimeImplDAO implements CrimeDAO {
 			PreparedStatement ps = c.prepareStatement(
 					"select count(*) Total_Crime, crime_type_name from crime c join crime_type ct on c.crime_type = ct.crime_type_id where is_deleted = false && crime_date between ? and ? group by crime_type");
 
+			ps.setDate(1, Date.valueOf(startDate));
+			ps.setDate(2, Date.valueOf(enddate));
+
 			ResultSet rs = ps.executeQuery();
 
 			if (DBUtils.isResultSetEmpty(rs)) {
@@ -179,7 +185,7 @@ public class CrimeImplDAO implements CrimeDAO {
 			return list;
 
 		} catch (ClassNotFoundException | SQLException e) {
-			throw new SomethingWentWrongException("Somerthing went wrong !");
+			throw new SomethingWentWrongException("Something went wrong !");
 		} finally {
 			try {
 				DBUtils.closeConnection(c);
@@ -202,9 +208,10 @@ public class CrimeImplDAO implements CrimeDAO {
 			c = DBUtils.getConnectionToDB();
 
 			PreparedStatement ps = c.prepareStatement(
-					"select crime_desc, ps_area, crime_date, complaint_date, victim_name from crime where crime_desc like '%?%' ");
+					"select crime_desc, ps_area, crime_date, complaint_date, victim_name from crime where crime_desc like ? ");
 
-			ps.setString(1, desc);
+			String str = "%";
+			ps.setString(1, str + desc + str);
 
 			ResultSet rs = ps.executeQuery();
 
@@ -223,12 +230,12 @@ public class CrimeImplDAO implements CrimeDAO {
 			return crime;
 
 		} catch (ClassNotFoundException | SQLException | NoDataFoundException e) {
-			throw new SomethingWentWrongException("Something went wrong");
+			throw new NoDataFoundException("No Record Found");
 		} finally {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing went wrong");
+				throw new SomethingWentWrongException("Something went wrong");
 			}
 		}
 
