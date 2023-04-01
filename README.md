@@ -1,5 +1,92 @@
-# sensitive-stove-1526
 
-Crime information management system 
--> Record of crime
--> Record of criminal
+<h1 align="center">Crime Net - Crime Information Management System</h1>
+<!-- <div align="center"><img src="https://user-images.githubusercontent.com/108060013/221414653-f9a06405-1a1e-4b5e-a1f6-e361f4589574.png"></div>
+ [CIMS](https://imgur.com/RRZpzB3) -->
+
+<br>
+
+## Introduction
+
+<p> Crime Information Management System (CIMS) is a software which can help in storing the records related to the criminals, cases, complaint and so on. </p>
+<p> Primary goal of CIMS is that Admin can assign any particular crime to any criminal by maintaining a many to many relationship. This can also allow a person to file a new complaint. All these records can be maintained in a single database. </p>
+<br>
+
+## Key Features
+
+> <h4 >Admin <h4>
+<ol>
+    <li> Register Crime </li>
+    <li> Register Criminal </li>
+    <li> Update Crime Record </li>
+    <li> Update Criminal Record </li>
+    <li> Assign a Criminal To a Crime </li>
+    <li> Remove a Criminal To a Crime </li>
+    <li> Delete Registered Crime </li>
+    <li> Delete an Existing Criminal Record </li>
+</ol>
+
+> <h4> Public <h4>
+<ol>
+    <li> Sign Up</li>
+    <li> Log In </li>
+    <li> Change Password </li>
+    <li> Display Total Crime From Each Police Station </li>
+    <li> Display Total Crime From Each Crime Type </li>
+    <li> Search a Criminal By Name </li>
+    <li> Search Crime By Description </li>
+    <li> File a New Complaint </li>
+    <li> Log Out </li>
+</ol>
+<br>
+    
+## Teck-Stack
+
+- JAVA
+- MySQL
+- JDBC
+
+## Tools
+
+- STS
+- Git
+- Github
+
+<br>
+    
+## Setting & Installation 
+
+Install the Spring Tools Suite 
+```bash
+https://spring.io/tools
+```
+
+Install MySQL Community Server
+
+```bash
+https://dev.mysql.com/downloads/mysql/
+```
+
+Clone the Repository
+
+```bash
+git clone https://github.com/sahu-neha/sensitive-stove-1526.git
+```
+
+Open MySQL Server
+```bash
+Create a New Database in MySQL: "crime_management" 
+```
+
+## Run Locally
+
+Go to the Project Directory
+
+```bas
+Open the crime_management Folder with STS
+```   
+
+## ER Diagram
+    
+<!-- ![Untitled (5)](https://user-images.githubusercontent.com/108060013/223524728-8f71f475-d530-4acd-829c-79a902cba656.png) -->
+
+<br>
