@@ -15,7 +15,12 @@ public interface CrimeDAO {
 
 	public void deleteCrime(String crime_id) throws SomethingWentWrongException, NoDataFoundException;
 
-	public List<CrimeDTO> displayTotalCrimeFromEachPoliceStationForADateRange(LocalDate startDate, LocalDate enddate)
+	public List<String> displayTotalCrimeFromEachPoliceStationForADateRange(LocalDate startDate, LocalDate enddate)
 			throws SomethingWentWrongException, NoDataFoundException;
+
+	public List<String> displayTotalCrimeFromEachCrimeTypeForADateRange(LocalDate startDate, LocalDate enddate)
+			throws SomethingWentWrongException, NoDataFoundException;
+
+	public List<String> searchCrimeByDescription(String desc) throws SomethingWentWrongException, NoDataFoundException;
 
 }

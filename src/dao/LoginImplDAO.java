@@ -18,7 +18,7 @@ public class LoginImplDAO implements LoginDAO {
 			c = DBUtils.getConnectionToDB();
 
 			PreparedStatement ps = c
-					.prepareStatement("insert into login(username, password, email, contact_no values(?,?,?,?)");
+					.prepareStatement("insert into login(username, password, email, contact_no) values(?,?,?,?)");
 
 			ps.setString(1, login.getUsername());
 			ps.setString(2, login.getPassword());
@@ -46,7 +46,7 @@ public class LoginImplDAO implements LoginDAO {
 		try {
 			c = DBUtils.getConnectionToDB();
 
-			PreparedStatement ps = c.prepareStatement("select username from login where username = ?, password = ?");
+			PreparedStatement ps = c.prepareStatement("select username from login where email = ?, password = ?");
 
 			ps.setString(1, email);
 			ps.setString(2, pw);
@@ -54,7 +54,7 @@ public class LoginImplDAO implements LoginDAO {
 			ResultSet rs = ps.executeQuery();
 
 			if (DBUtils.isResultSetEmpty(rs)) {
-				throw new NoDataFoundException("No User Found");
+				throw new NoDataFoundException("Incorrect Credentials");
 			}
 
 			String un = "";
@@ -76,10 +76,5 @@ public class LoginImplDAO implements LoginDAO {
 	}
 
 	// -------------------------------------------------------//
-
-	@Override
-	public void userLogOut(LoginDTO login) throws SomethingWentWrongException {
-
-	}
 
 }

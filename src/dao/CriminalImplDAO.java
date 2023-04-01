@@ -5,12 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.CrimeDTO;
-import dto.CrimeImplDTO;
 import dto.CriminalDTO;
 import exception.NoDataFoundException;
 import exception.SomethingWentWrongException;
@@ -95,7 +92,8 @@ public class CriminalImplDAO implements CriminalDAO {
 		try {
 			c = DBUtils.getConnectionToDB();
 
-			PreparedStatement ps = c.prepareStatement("delete from criminal where criminal_id = ?");
+			PreparedStatement ps = c.prepareStatement(
+					"update criminal set is_deleted = true where criminal_id = ? && is_deleted = false");
 
 			ps.setString(1, criminal_id);
 
@@ -114,20 +112,24 @@ public class CriminalImplDAO implements CriminalDAO {
 		}
 
 	}
+
 	// -------------------------------------------------------//
 
 	@Override
-	public List<CriminalDTO> displayTotalCrimeFromEachCrimeTypeForADateRange(LocalDate startDate, LocalDate enddate)
+	public List<String> searchCriminalByName(String fname, String lname)
 			throws SomethingWentWrongException, NoDataFoundException {
 
-		List<CriminalDTO> list = new ArrayList<>();
+		List<String> criminals = new ArrayList<>();
 
 		Connection c = null;
 		try {
 			c = DBUtils.getConnectionToDB();
 
 			PreparedStatement ps = c.prepareStatement(
-					"select crime_id, crime_type, crime_desc, ps_area, crime_date, complaint_date, victim_name from crime where crime_date between ? and ? group by ps_area");
+					"select fname, lname, dob, gender, identifying_mark, first_arrest_date, arrested_from_ps_area from criminal where fname=?, lname=?");
+
+			ps.setString(1, fname);
+			ps.setString(2, lname);
 
 			ResultSet rs = ps.executeQuery();
 
@@ -135,19 +137,24 @@ public class CriminalImplDAO implements CriminalDAO {
 				throw new NoDataFoundException("No Record Found");
 			}
 
-			while (rs.next()) {
-				list.add(new CriminalImplDTO(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
-						rs.getDate(4).toLocalDate(), rs.getDate(4).toLocalDate(), rs.getString(7)));
-			}
-			return list;
+			String un = "";
 
-		} catch (ClassNotFoundException | SQLException e) {
-			throw new SomethingWentWrongException("Somerthing went wrong !");
+			while (rs.next()) {
+				un = "First Name : " + rs.getString(1) + ", Last Name : " + rs.getString(2) + ", Date of Birth : "
+						+ rs.getDate(3).toLocalDate() + ", Gender : " + rs.getString(4) + ", Identifying Mark : "
+						+ rs.getString(5) + ", First Arrest Date : " + rs.getDate(6).toLocalDate()
+						+ ", Arrested From Police Station Area : " + rs.getString(7);
+				criminals.add(un);
+			}
+			return criminals;
+
+		} catch (ClassNotFoundException | SQLException | NoDataFoundException e) {
+			throw new SomethingWentWrongException("Something went wrong");
 		} finally {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				e.printStackTrace();
+				throw new SomethingWentWrongException("Somerthing went wrong");
 			}
 		}
 
