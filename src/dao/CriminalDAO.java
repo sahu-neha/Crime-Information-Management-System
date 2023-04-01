@@ -14,7 +14,6 @@ public interface CriminalDAO {
 
 	public void deleteCriminal(String criminal_id) throws SomethingWentWrongException, NoDataFoundException;
 
-	public List<String> searchCriminalByName(String fname,
-			String lname) throws SomethingWentWrongException, NoDataFoundException;
+	public List<String> searchCriminalByName(String fname) throws SomethingWentWrongException, NoDataFoundException;
 
 }

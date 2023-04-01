@@ -46,7 +46,7 @@ public class LoginImplDAO implements LoginDAO {
 		try {
 			c = DBUtils.getConnectionToDB();
 
-			PreparedStatement ps = c.prepareStatement("select username from login where email = ?, password = ?");
+			PreparedStatement ps = c.prepareStatement("select username from login where email = ? && password = ?");
 
 			ps.setString(1, email);
 			ps.setString(2, pw);

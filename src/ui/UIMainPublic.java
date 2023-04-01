@@ -27,7 +27,8 @@ public class UIMainPublic {
 	public static void userSignUp(Scanner sc) {
 
 		System.out.println("Please Enter Your Name");
-		String name = sc.next();
+		sc.nextLine();
+		String name = sc.nextLine();
 
 		System.out.println("Please Enter Your Password");
 		String pw = sc.next();
@@ -45,6 +46,7 @@ public class UIMainPublic {
 		try {
 			loginDAO.userSignUp(loginDTO);
 			email = mail;
+			System.out.println();
 			System.out.println("User Account Created Successfully");
 		} catch (SomethingWentWrongException e) {
 			System.out.println(e.getMessage());
@@ -66,8 +68,9 @@ public class UIMainPublic {
 		String un = "";
 		try {
 			String username = loginDAO.userLogin(mail, pw);
-			un = "Welcome " + username + ", Login Successful.";
+			un = username;
 			email = mail;
+			return un;
 		} catch (SomethingWentWrongException e) {
 			System.out.println(e.getMessage());
 		}
@@ -123,13 +126,10 @@ public class UIMainPublic {
 		System.out.println("Please Enter First Name of Criminal");
 		String fname = sc.next();
 
-		System.out.println("Please Enter Last Name of Criminal");
-		String lname = sc.next();
-
 		CriminalDAO criminalDao = new CriminalImplDAO();
 
 		try {
-			criminalDao.searchCriminalByName(fname, lname).forEach(s -> System.out.println(s));
+			criminalDao.searchCriminalByName(fname).forEach(s -> System.out.println(s));
 		} catch (SomethingWentWrongException | NoDataFoundException e) {
 			System.out.println(e.getMessage());
 		}
@@ -160,6 +160,7 @@ public class UIMainPublic {
 		String getCrime_id = email;
 
 		System.out.println("Please Enter Crime Type : ");
+		System.out.println("--------------------------");
 		System.out.println("Select 1 for Robbery");
 		System.out.println("Select 2 for Theft");
 		System.out.println("Select 3 for Homicide");
@@ -200,7 +201,7 @@ public class UIMainPublic {
 		PublicComplaintDAO pcDAO = new PublicComplaintImplDAO();
 
 		try {
-			pcDAO.toString();
+			System.out.println(pcDAO);
 			System.out.println("Press 1 to confirm or Press 2 to cancel");
 			int res = sc.nextInt();
 
@@ -230,19 +231,21 @@ public class UIMainPublic {
 		int choice = 0;
 
 		do {
-			System.out.println("---------------------------");
+			System.out.println("------------------------------------------------------------------------");
 			System.out.println("select 1 to Display Total Crime From Each Police Station For a Date Range");
 			System.out.println("select 2 to Display Total Crime From Each Crime Type For a Date Range");
 			System.out.println("select 3 to Search a Criminal By Name");
 			System.out.println("select 4 to Search Crime By Description");
 			System.out.println("select 5 to File a New Complaint");
 			System.out.println("select 0 to Log Out");
-			System.out.println("---------------------------");
+			System.out.println("-------------------------------------------------------------------------");
 
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {
+				System.out.println();
 				System.out.println("Wrong Input Selected");
+				System.out.println();
 				publicUIMethods(null);
 			}
 			switch (choice) {
@@ -271,7 +274,9 @@ public class UIMainPublic {
 				return;
 
 			default:
+				System.out.println();
 				System.out.println("Invalid selection, Please select a valid option");
+				System.out.println();
 				break;
 			}
 
@@ -298,10 +303,12 @@ public class UIMainPublic {
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {
+				System.out.println();
 				System.out.println("Wrong Input Selected");
+				System.out.println();
 				publicUI(null);
 			}
-			
+
 			switch (choice) {
 
 			case 1:
@@ -313,15 +320,19 @@ public class UIMainPublic {
 				String un = "";
 				un = userLogin(sc);
 				if (un != "") {
+					System.out.println("Welcome " + un + ", Login Successful.");
 					publicUIMethods(sc);
 				}
+
 				break;
 
 			case 0:
 				return;
 
 			default:
+				System.out.println();
 				System.out.println("Invalid selection, Please select a valid option");
+				System.out.println();
 				break;
 			}
 
