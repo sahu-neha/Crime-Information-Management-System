@@ -1,8 +1,6 @@
 
 <h1 align="center">Crime Net - Crime Information Management System</h1>
-<!-- <div align="center"><img src="https://user-images.githubusercontent.com/108060013/221414653-f9a06405-1a1e-4b5e-a1f6-e361f4589574.png"></div>
- [CIMS](https://imgur.com/RRZpzB3) -->
-<!--  https://imgur.com/LjBK77c -->
+<div align="center" ><img src="https://user-images.githubusercontent.com/109987397/229303052-bb6e258e-9d1b-4121-b3a8-37b99a81a1f0.png" alt="CIMS"></div>
 
 <br>
 
@@ -61,13 +59,11 @@ https://spring.io/tools
 ```
 
 Install MySQL Community Server
-
 ```bash
 https://dev.mysql.com/downloads/mysql/
 ```
 
 Clone the Repository
-
 ```bash
 git clone https://github.com/sahu-neha/sensitive-stove-1526.git
 ```
@@ -80,7 +76,6 @@ Create a New Database in MySQL: "crime_management"
 ## Run Locally
 
 Go to the Project Directory
-
 ```bas
 Open the crime_management Folder with STS
 ```   
