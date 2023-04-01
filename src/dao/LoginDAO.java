@@ -9,6 +9,4 @@ public interface LoginDAO {
 
 	public String userLogin(String un, String pw) throws SomethingWentWrongException;
 
-	public void userLogOut(LoginDTO login) throws SomethingWentWrongException;
-
 }

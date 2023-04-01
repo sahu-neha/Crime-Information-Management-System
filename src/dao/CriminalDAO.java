@@ -1,6 +1,5 @@
 package dao;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import dto.CriminalDTO;
@@ -15,8 +14,7 @@ public interface CriminalDAO {
 
 	public void deleteCriminal(String criminal_id) throws SomethingWentWrongException, NoDataFoundException;
 
-	public List<CriminalDTO> displayTotalCrimeFromEachCrimeTypeForADateRange(LocalDate startDate, LocalDate enddate)
-			throws SomethingWentWrongException, NoDataFoundException;
+	public List<String> searchCriminalByName(String fname,
+			String lname) throws SomethingWentWrongException, NoDataFoundException;
 
-	
 }
