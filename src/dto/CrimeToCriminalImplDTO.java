@@ -29,7 +29,7 @@ public class CrimeToCriminalImplDTO implements CrimeToCriminalDTO {
 
 	@Override
 	public String toString() {
-		return "crime_id = " + crime_id + ", criminal_id = " + criminal_id;
+		return "Crime ID = " + crime_id + ", Criminal ID = " + criminal_id;
 	}
 
 }

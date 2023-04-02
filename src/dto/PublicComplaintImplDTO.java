@@ -82,8 +82,8 @@ public class PublicComplaintImplDTO implements PublicComplaintDTO {
 
 	@Override
 	public String toString() {
-		return "email=" + email + ", crime_type=" + crime_type + ", crime_desc=" + crime_desc + ", crime_date="
-				+ crime_date + ", complaint_date=" + complaint_date + ", victim_name=" + victim_name + ", suspect="
+		return "Email = " + email + ", Crime_type = " + crime_type + ", Crime_desc = " + crime_desc + ", Crime_date = "
+				+ crime_date + ", Complaint_date = " + complaint_date + ", Victim_name = " + victim_name + ", Suspect = "
 				+ suspect;
 	}
 

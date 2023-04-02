@@ -20,7 +20,7 @@ public class CrimeToCriminalImplDAO implements CrimeToCriminalDAO {
 
 			ps.setString(1, cc.getCrime_id());
 			ps.setString(2, cc.getCriminal_id());
-			ps.setBoolean(2, false);
+			ps.setInt(3, 0);
 
 			if (ps.executeUpdate() <= 0) {
 				throw new SomethingWentWrongException("Unable to assign crime to criminal");
@@ -32,7 +32,7 @@ public class CrimeToCriminalImplDAO implements CrimeToCriminalDAO {
 			try {
 				DBUtils.closeConnection(c);
 			} catch (SQLException e) {
-				throw new SomethingWentWrongException("Somerthing Went Wrong.");
+				throw new SomethingWentWrongException("Something Went Wrong.");
 			}
 		}
 
@@ -48,7 +48,7 @@ public class CrimeToCriminalImplDAO implements CrimeToCriminalDAO {
 			c = DBUtils.getConnectionToDB();
 
 			PreparedStatement ps = c.prepareStatement(
-					"update crime_to_criminal set is_deleted = true where crime_id = ? && criminal_id = ? && is_deleted = false");
+					"update crime_to_criminal set is_deleted = 1 where crime_id = ? && criminal_id = ? && is_deleted = 0");
 
 			ps.setString(1, cc.getCrime_id());
 			ps.setString(2, cc.getCriminal_id());

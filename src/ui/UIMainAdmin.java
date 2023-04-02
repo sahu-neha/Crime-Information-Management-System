@@ -215,6 +215,34 @@ public class UIMainAdmin {
 
 	}
 
+	// --------------------- D I S P L A Y - C R I M E ---------------------//
+
+	public static void displayCrimeList() {
+
+		CrimeDAO crimeDao = new CrimeImplDAO();
+
+		try {
+			crimeDao.displayCrimeList().forEach(s -> System.out.println(s));
+		} catch (SomethingWentWrongException | NoDataFoundException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	// --------------------- D I S P L A Y - C R I M I N A L ---------------------//
+
+	public static void displayCrimialList() {
+
+		CriminalDAO criminalDAO = new CriminalImplDAO();
+
+		try {
+			criminalDAO.displayCriminalList().forEach(s -> System.out.println(s));
+		} catch (SomethingWentWrongException | NoDataFoundException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 	// --------------------- A S S I G N - C R I M E ---------------------//
 
 	public static void assignCriminalToCrime(Scanner sc) {
@@ -303,17 +331,23 @@ public class UIMainAdmin {
 
 		do {
 
-			System.out.println("----------------------------------------------");
-			System.out.println("Select 1 to Register a Crime");
-			System.out.println("select 2 to Update an Already Registered Crime");
-			System.out.println("select 3 to Add a Criminal Record");
-			System.out.println("select 4 to Update a Criminal Record");
-			System.out.println("select 5 to Assign a Criminal To a Crime");
-			System.out.println("select 6 to Remove a Criminal From a Crime");
-			System.out.println("select 7 to Delete Registered Crime");
-			System.out.println("select 8 to Delete an Existing Criminal Record");
-			System.out.println("select 0 to Log Out");
-			System.out.println("-----------------------------------------------");
+			System.out.println();
+			System.out.println("|------------------------------------------------------|");
+			System.out.println("|=============== Welcome to Admin Panel ===============|");
+			System.out.println("|------------------------------------------------------|");
+			System.out.println("|  Select 1 to Register a Crime                        |");
+			System.out.println("|  Select 2 to Update an Already Registered Crime      |");
+			System.out.println("|  Select 3 to Add a Criminal Record                   |");
+			System.out.println("|  Select 4 to Update a Criminal Record                |");
+			System.out.println("|  Select 5 to Display Crime Record                    |");
+			System.out.println("|  Select 6 to Display Criminal Record                 |");
+			System.out.println("|  Select 7 to Assign a Criminal To a Crime            |");
+			System.out.println("|  Select 8 to Remove a Criminal From a Crime          |");
+			System.out.println("|  Select 9 to Delete Registered Crime                 |");
+			System.out.println("|  Select 10 to Delete an Existing Criminal Record     |");
+			System.out.println("|  Select 0 to Log Out                                 |");
+			System.out.println("|------------------------------------------------------|");
+			System.out.println();
 
 			try {
 				choice = sc.nextInt();
@@ -343,18 +377,26 @@ public class UIMainAdmin {
 				break;
 
 			case 5:
-				assignCriminalToCrime(sc);
+				displayCrimeList();
 				break;
 
 			case 6:
-				removeCriminalFromCrime(sc);
+				displayCrimialList();
 				break;
 
 			case 7:
-				deleteCrime(sc);
+				assignCriminalToCrime(sc);
 				break;
 
 			case 8:
+				removeCriminalFromCrime(sc);
+				break;
+
+			case 9:
+				deleteCrime(sc);
+				break;
+
+			case 10:
 				deleteCriminal(sc);
 				break;
 

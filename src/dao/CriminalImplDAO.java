@@ -138,10 +138,54 @@ public class CriminalImplDAO implements CriminalDAO {
 			String un = "";
 
 			while (rs.next()) {
-				un = "First Name : " + rs.getString(1) + ", Last Name : " + rs.getString(2) + ", Date of Birth : "
-						+ rs.getDate(3).toLocalDate() + ", Gender : " + rs.getString(4) + ", Identifying Mark : "
-						+ rs.getString(5) + ", First Arrest Date : " + rs.getDate(6).toLocalDate()
-						+ ", Arrested From Police Station Area : " + rs.getString(7);
+				un = "First Name : " + rs.getString(1) + "  |  Last Name : " + rs.getString(2) + "  |  Date of Birth : "
+						+ rs.getDate(3).toLocalDate() + "  |  Gender : " + rs.getString(4) + "  |  Identifying Mark : "
+						+ rs.getString(5) + "  |  First Arrest Date : " + rs.getDate(6).toLocalDate()
+						+ "  |  Arrested From Police Station Area : " + rs.getString(7);
+				criminals.add(un);
+			}
+
+			return criminals;
+
+		} catch (ClassNotFoundException | SQLException | NoDataFoundException e) {
+			throw new NoDataFoundException("No Record Found");
+		} finally {
+			try {
+				DBUtils.closeConnection(c);
+			} catch (SQLException e) {
+				throw new SomethingWentWrongException("something went wrong");
+			}
+		}
+
+	}
+
+	// -------------------------------------------------------//
+
+	@Override
+	public List<String> displayCriminalList() throws SomethingWentWrongException, NoDataFoundException {
+
+		List<String> criminals = new ArrayList<>();
+
+		Connection c = null;
+		try {
+			c = DBUtils.getConnectionToDB();
+
+			PreparedStatement ps = c.prepareStatement(
+					"select criminal_id, fname, lname, dob, gender, identifying_mark, first_arrest_date, arrested_from_ps_area from criminal");
+
+			ResultSet rs = ps.executeQuery();
+
+			if (DBUtils.isResultSetEmpty(rs)) {
+				throw new NoDataFoundException("No Record Found");
+			}
+
+			String un = "";
+
+			while (rs.next()) {
+				un = "Criminal ID : " + rs.getString(1) + "  |  First Name : " + rs.getString(2) + "  |  Last Name : "
+						+ rs.getString(3) + "  |  Date of Birth : " + rs.getDate(4).toLocalDate() + "  |  Gender : "
+						+ rs.getString(5) + "  |  Identifying Mark : " + rs.getString(6) + "  |  First Arrest Date : "
+						+ rs.getDate(7).toLocalDate() + "  |  Arrested From Police Station Area : " + rs.getString(8);
 				criminals.add(un);
 			}
 

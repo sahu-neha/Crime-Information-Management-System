@@ -23,4 +23,6 @@ public interface CrimeDAO {
 
 	public List<String> searchCrimeByDescription(String desc) throws SomethingWentWrongException, NoDataFoundException;
 
+	public List<String> displayCrimeList() throws SomethingWentWrongException, NoDataFoundException;
+
 }

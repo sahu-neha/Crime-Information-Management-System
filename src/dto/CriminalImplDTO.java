@@ -92,9 +92,10 @@ public class CriminalImplDTO implements CriminalDTO {
 
 	@Override
 	public String toString() {
-		return "criminal_id = " + criminal_id + ", first_name = " + first_name + ", last_name = " + last_name
-				+ ", dob = " + dob + ", gender = " + gender + ", identifying_mark = " + identifying_mark
-				+ ", first_arrest_date = " + first_arrest_date + ", arrested_from_ps_area = " + arrested_from_ps_area;
+		return "Criminal ID = " + criminal_id + "  |  First Name = " + first_name + "  |  Last Name = " + last_name
+				+ "  |  Date of Birth = " + dob + ", Gender = " + gender + "  |  Identifying Mark = " + identifying_mark
+				+ "  |  First Arrest Date = " + first_arrest_date + "  |  Arrested From Police Station Area = "
+				+ arrested_from_ps_area;
 	}
 
 }

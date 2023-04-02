@@ -137,7 +137,7 @@ public class CrimeImplDAO implements CrimeDAO {
 			}
 
 			while (rs.next()) {
-				String str = "Total_Crime : " + rs.getInt(1) + ", Police_Station_Area : " + rs.getString(2);
+				String str = "Total Crime : " + rs.getInt(1) + "  |  Police Station Area : " + rs.getString(2);
 				list.add(str);
 			}
 			return list;
@@ -179,7 +179,7 @@ public class CrimeImplDAO implements CrimeDAO {
 			}
 
 			while (rs.next()) {
-				String str = "Total_Crime : " + rs.getInt(1) + ", Crime Type : " + rs.getString(2);
+				String str = "Total Crime : " + rs.getInt(1) + "  |  Crime Type : " + rs.getString(2);
 				list.add(str);
 			}
 			return list;
@@ -222,9 +222,9 @@ public class CrimeImplDAO implements CrimeDAO {
 			String un = "";
 
 			while (rs.next()) {
-				un = "Crime Description : " + rs.getString(1) + ", Police Station Area : " + rs.getString(2)
-						+ ", Crime Date : " + rs.getDate(3).toLocalDate() + ", Complaint Date : "
-						+ rs.getDate(4).toLocalDate() + ", Victim Name : " + rs.getString(5);
+				un = "Crime Description : " + rs.getString(1) + "  |  Police Station Area : " + rs.getString(2)
+						+ "  |  Crime Date : " + rs.getDate(3).toLocalDate() + "  |  Complaint Date : "
+						+ rs.getDate(4).toLocalDate() + "  |  Victim Name : " + rs.getString(5);
 				crime.add(un);
 			}
 			return crime;
@@ -241,4 +241,48 @@ public class CrimeImplDAO implements CrimeDAO {
 
 	}
 
+	// -------------------------------------------------------//
+
+	@Override
+	public List<String> displayCrimeList() throws SomethingWentWrongException, NoDataFoundException {
+
+		List<String> crime = new ArrayList<>();
+
+		Connection c = null;
+		try {
+			c = DBUtils.getConnectionToDB();
+
+			PreparedStatement ps = c.prepareStatement(
+					"select crime_id, crime_type, crime_desc, ps_area, crime_date, complaint_date, victim_name from crime");
+
+			ResultSet rs = ps.executeQuery();
+
+			if (DBUtils.isResultSetEmpty(rs)) {
+				throw new NoDataFoundException("No Record Found");
+			}
+
+			String un = "";
+
+			while (rs.next()) {
+				un = "Crime ID : " + rs.getString(1) + "  |  Crime Type : " + rs.getString(2) + "  |  Crime Description : "
+						+ rs.getString(3) + "  |  Police Station Area : " + rs.getString(4) + "  |  Crime Date : "
+						+ rs.getDate(5).toLocalDate() + "  |  Complaint Date : " + rs.getDate(6).toLocalDate()
+						+ "  |  Victim Name : " + rs.getString(7);
+				crime.add(un);
+			}
+			return crime;
+
+		} catch (ClassNotFoundException | SQLException | NoDataFoundException e) {
+			throw new NoDataFoundException("No Record Found");
+		} finally {
+			try {
+				DBUtils.closeConnection(c);
+			} catch (SQLException e) {
+				throw new SomethingWentWrongException("Something went wrong");
+			}
+		}
+
+	}
+
+	// -------------------------------------------------------//
 }

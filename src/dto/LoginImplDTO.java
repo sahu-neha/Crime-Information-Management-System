@@ -1,6 +1,6 @@
 package dto;
 
-public class LoginImplDTO implements LoginDTO{
+public class LoginImplDTO implements LoginDTO {
 
 	private String username;
 	private String password;
@@ -51,6 +51,12 @@ public class LoginImplDTO implements LoginDTO{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "Username = " + username + ", Password = " + password + ", Email = " + email + ", Contact_no = "
+				+ contact_no;
 	}
 
 }

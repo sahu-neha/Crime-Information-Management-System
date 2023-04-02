@@ -77,14 +77,37 @@ public class UIMainPublic {
 		return un;
 	}
 
+	// --------------------- L O G - I N ---------------------//
+
+	public static void updatePassword(Scanner sc) {
+
+		System.out.println("Enter your email");
+		String mail = sc.next();
+
+		System.out.println("Enter current password");
+		String opw = sc.next();
+
+		System.out.println("Enter new password");
+		String npw = sc.next();
+
+		LoginDAO loginDAO = new LoginImplDAO();
+
+		try {
+			loginDAO.updatePassword(mail, opw, npw);
+			System.out.println("Password Changed Successfully");
+		} catch (SomethingWentWrongException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 	// ---------------- DISPLAY TOTAL CRIME FOR POLICE STATION ----------------//
 
 	public static void displayTotalCrimeFromEachPoliceStationForADateRange(Scanner sc) {
 
-		System.out.println("Please Enter Start Date");
+		System.out.println("Please Enter Start Date (YYYY-MM-DD)");
 		LocalDate start_date = LocalDate.parse(sc.next());
 
-		System.out.println("Please Enter End Date");
+		System.out.println("Please Enter End Date (YYYY-MM-DD)");
 		LocalDate end_date = LocalDate.parse(sc.next());
 
 		CrimeDAO crimeDAO = new CrimeImplDAO();
@@ -102,10 +125,10 @@ public class UIMainPublic {
 
 	public static void displayTotalCrimeFromEachCrimeTypeForADateRange(Scanner sc) {
 
-		System.out.println("Please Enter Start Date");
+		System.out.println("Please Enter Start Date (YYYY-MM-DD)");
 		LocalDate start_date = LocalDate.parse(sc.next());
 
-		System.out.println("Please Enter End Date");
+		System.out.println("Please Enter End Date (YYYY-MM-DD)");
 		LocalDate end_date = LocalDate.parse(sc.next());
 
 		CrimeDAO crimeDAO = new CrimeImplDAO();
@@ -141,7 +164,8 @@ public class UIMainPublic {
 	public static void searchCrimeByDescription(Scanner sc) {
 
 		System.out.println("Please Enter Keyword Related To Crime Description");
-		String desc = sc.next();
+		sc.nextLine();
+		String desc = sc.nextLine();
 
 		CrimeDAO crimeDAO = new CrimeImplDAO();
 
@@ -192,7 +216,6 @@ public class UIMainPublic {
 		String getVictim_name = sc.nextLine();
 
 		System.out.println("Please Enter Suspect Name");
-		sc.nextLine();
 		String getSuspect = sc.nextLine();
 
 		PublicComplaintDTO pcDTO = new PublicComplaintImplDTO(getCrime_id, getCrime_desc, getCrime_date,
@@ -201,7 +224,7 @@ public class UIMainPublic {
 		PublicComplaintDAO pcDAO = new PublicComplaintImplDAO();
 
 		try {
-			System.out.println(pcDAO);
+			System.out.println(pcDTO);
 			System.out.println("Press 1 to confirm or Press 2 to cancel");
 			int res = sc.nextInt();
 
@@ -231,15 +254,20 @@ public class UIMainPublic {
 		int choice = 0;
 
 		do {
-			System.out.println("------------------------------------------------------------------------");
-			System.out.println("select 1 to Display Total Crime From Each Police Station For a Date Range");
-			System.out.println("select 2 to Display Total Crime From Each Crime Type For a Date Range");
-			System.out.println("select 3 to Search a Criminal By Name");
-			System.out.println("select 4 to Search Crime By Description");
-			System.out.println("select 5 to File a New Complaint");
-			System.out.println("select 0 to Log Out");
-			System.out.println("-------------------------------------------------------------------------");
-
+			System.out.println();
+			System.out.println("|-----------------------------------------------------------------------------|");
+			System.out.println("|========================= Welcome to Public Portal ==========================|");
+			System.out.println("|-----------------------------------------------------------------------------|");
+			System.out.println("|  Select 1 to Display Total Crime From Each Police Station For a Date Range  |");
+			System.out.println("|  Select 2 to Display Total Crime From Each Crime Type For a Date Range      |");
+			System.out.println("|  Select 3 to Search a Criminal By Name                                      |");
+			System.out.println("|  Select 4 to Search Crime By Description                                    |");
+			System.out.println("|  Select 5 to File a New Complaint                                           |");
+			System.out.println("|  Select 6 to Change Your Password                                           |");
+			System.out.println("|  Select 0 to Log Out                                                        |");
+			System.out.println("|-----------------------------------------------------------------------------|");
+			System.out.println();
+			
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {
@@ -270,6 +298,10 @@ public class UIMainPublic {
 				fileNewComplaint(sc);
 				break;
 
+			case 6:
+				updatePassword(sc);
+				break;
+
 			case 0:
 				return;
 
@@ -293,13 +325,16 @@ public class UIMainPublic {
 		int choice = 0;
 
 		do {
-
-			System.out.println("--------------------------------");
-			System.out.println("select 1 to Sign Up");
-			System.out.println("select 2 to Log In");
-			System.out.println("select 0 to Go to Previous Menu");
-			System.out.println("--------------------------------");
-
+			System.out.println();
+			System.out.println("|-------------------------------------|");
+			System.out.println("|========= Log In / Sign Up ==========|");
+			System.out.println("|-------------------------------------|");
+			System.out.println("|  Select 1 to Sign Up                |");
+			System.out.println("|  Select 2 to Log In                 |");
+			System.out.println("|  Select 0 to Go to Previous Menu    |");
+			System.out.println("|-------------------------------------|");
+			System.out.println();
+			
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {

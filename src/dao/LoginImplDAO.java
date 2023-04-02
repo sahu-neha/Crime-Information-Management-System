@@ -77,4 +77,32 @@ public class LoginImplDAO implements LoginDAO {
 
 	// -------------------------------------------------------//
 
+	@Override
+	public void updatePassword(String email, String opw, String npw) throws SomethingWentWrongException {
+		Connection c = null;
+
+		try {
+			c = DBUtils.getConnectionToDB();
+
+			PreparedStatement ps = c.prepareStatement("update login set password=? where email = ? && password = ?");
+
+			ps.setString(2, email);
+			ps.setString(3, opw);
+			ps.setString(1, npw);
+
+			ps.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new SomethingWentWrongException("went wrong");
+		} finally {
+			try {
+				DBUtils.closeConnection(c);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// -------------------------------------------------------//
+
 }
