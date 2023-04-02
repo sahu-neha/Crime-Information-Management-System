@@ -82,6 +82,6 @@ Open the crime_management Folder with STS
 
 ## ER Diagram
     
-![Database ER diagram (CIMS)(1)](https://user-images.githubusercontent.com/109987397/229369932-ad84a0aa-f26b-48a9-8c1a-c852a1b38f2a.png)
+![Database ER diagram - CIMS](https://user-images.githubusercontent.com/109987397/229374869-aebee35f-f754-424d-aa24-6cd17170f5f9.png)
 
 <br>
