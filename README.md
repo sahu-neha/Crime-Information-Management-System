@@ -1,6 +1,6 @@
 
 <h1 align="center">Crime Net - Crime Information Management System</h1>
-<div align="center" ><img src="https://user-images.githubusercontent.com/109987397/229303052-bb6e258e-9d1b-4121-b3a8-37b99a81a1f0.png" alt="CIMS"></div>
+<div align="center" ><img src="https://user-images.githubusercontent.com/109987397/229375262-e5a16f7b-7288-47b5-ad20-5fca0be25079.png" alt="CIMS" width="100%"></div>
 
 <br>
 
@@ -18,6 +18,8 @@
     <li> Register Criminal </li>
     <li> Update Crime Record </li>
     <li> Update Criminal Record </li>
+    <li> Display Crime Record </li>
+    <li> Display Criminal Record </li>
     <li> Assign a Criminal To a Crime </li>
     <li> Remove a Criminal To a Crime </li>
     <li> Delete Registered Crime </li>
