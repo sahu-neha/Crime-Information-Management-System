@@ -25,6 +25,7 @@
     <li> Delete Registered Crime </li>
     <li> Delete an Existing Criminal Record </li>
 </ol>
+<br>
 
 > <h4> Public <h4>
 <ol>
@@ -39,7 +40,7 @@
 </ol>
 <br>
     
-## Teck-Stack
+## Tech-Stack
 
 - JAVA
 - MySQL
