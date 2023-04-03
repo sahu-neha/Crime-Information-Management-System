@@ -281,8 +281,8 @@ public class UIMainAdmin {
 		CrimeToCriminalDAO ccDAO = new CrimeToCriminalImplDAO();
 
 		try {
-			ccDAO.assignCriminalToCrime(ccDTO);
-			System.out.println("Crime Assigned to Criminal Successfully");
+			ccDAO.removeCriminalFromCrime(ccDTO);
+			System.out.println("Crime Removed to Criminal Successfully");
 		} catch (SomethingWentWrongException e) {
 			System.out.println(e.getMessage());
 		}
@@ -332,7 +332,7 @@ public class UIMainAdmin {
 		do {
 
 			System.out.println();
-			System.out.println("|------------------------------------------------------|");
+			System.out.println("+------------------------------------------------------+");
 			System.out.println("|=============== Welcome to Admin Panel ===============|");
 			System.out.println("|------------------------------------------------------|");
 			System.out.println("|  Select 1 to Register a Crime                        |");
@@ -346,7 +346,7 @@ public class UIMainAdmin {
 			System.out.println("|  Select 9 to Delete Registered Crime                 |");
 			System.out.println("|  Select 10 to Delete an Existing Criminal Record     |");
 			System.out.println("|  Select 0 to Log Out                                 |");
-			System.out.println("|------------------------------------------------------|");
+			System.out.println("+------------------------------------------------------+");
 			System.out.println();
 
 			try {

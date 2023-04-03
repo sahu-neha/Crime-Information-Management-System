@@ -82,9 +82,9 @@ public class CrimeImplDTO implements CrimeDTO {
 
 	@Override
 	public String toString() {
-		return "Crime ID = " + crime_id + "  |  Crime Type = " + crime_type + "  |  Crime Desc = " + crime_desc
-				+ "  |  Police Station Area = " + ps_area + "  |  Crime Date = " + crime_date + "  |  Complaint Date = "
-				+ complaint_date + "  |  Victim Date = " + victim_name;
+		return "Crime ID = " + crime_id + "\n" + "  |  Crime Type = " + crime_type + "\n" + "  |  Crime Desc = " + crime_desc
+				 + "\n"	+ "  |  Police Station Area = " + ps_area + "\n" + "  |  Crime Date = " + crime_date + "\n" + "  |  Complaint Date = "
+				+ complaint_date + "\n" + "  |  Victim Date = " + victim_name + "\n";
 	}
 
 }

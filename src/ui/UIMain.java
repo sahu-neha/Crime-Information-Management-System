@@ -14,13 +14,13 @@ public class UIMain {
 
 		do {
 			System.out.println();
-			System.out.println("|-------------------------------------------------------------------|");
+			System.out.println("+-------------------------------------------------------------------+");
 			System.out.println("|==== Welcome to Crime Net, Crime Information Management System ====|");
 			System.out.println("|-------------------------------------------------------------------|");
 			System.out.println("|   Select 1 For Admin Log In                                       |");
 			System.out.println("|   Select 2 For Public Portal                                      |");
 			System.out.println("|   Select 0 to Close The Application                               |");
-			System.out.println("|-------------------------------------------------------------------|");
+			System.out.println("+-------------------------------------------------------------------+");
 			System.out.println();
 			
 			try {
@@ -57,9 +57,9 @@ public class UIMain {
 
 			case 0:
 				System.out.println();
-				System.out.println("|----------------------------------------------------------|");
+				System.out.println("+----------------------------------------------------------+");
 				System.out.println("|==== Thank you for using our service ~ Team Crime Net ====|");
-				System.out.println("|----------------------------------------------------------|");
+				System.out.println("+----------------------------------------------------------+");
 				System.out.println();
 				break;
 

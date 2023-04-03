@@ -138,10 +138,10 @@ public class CriminalImplDAO implements CriminalDAO {
 			String un = "";
 
 			while (rs.next()) {
-				un = "First Name : " + rs.getString(1) + "  |  Last Name : " + rs.getString(2) + "  |  Date of Birth : "
-						+ rs.getDate(3).toLocalDate() + "  |  Gender : " + rs.getString(4) + "  |  Identifying Mark : "
-						+ rs.getString(5) + "  |  First Arrest Date : " + rs.getDate(6).toLocalDate()
-						+ "  |  Arrested From Police Station Area : " + rs.getString(7);
+				un = "First Name : " + rs.getString(1) + "\n" + "Last Name : " + rs.getString(2) + "\n" + "Date of Birth : "
+						+ rs.getDate(3).toLocalDate() + "\n" + "Gender : " + rs.getString(4) + "\n" + "Identifying Mark : "
+						+ rs.getString(5) + "\n" + "First Arrest Date : " + rs.getDate(6).toLocalDate() + "\n"
+						+ "Arrested From Police Station Area : " + rs.getString(7) + "\n";
 				criminals.add(un);
 			}
 
@@ -182,10 +182,10 @@ public class CriminalImplDAO implements CriminalDAO {
 			String un = "";
 
 			while (rs.next()) {
-				un = "Criminal ID : " + rs.getString(1) + "  |  First Name : " + rs.getString(2) + "  |  Last Name : "
-						+ rs.getString(3) + "  |  Date of Birth : " + rs.getDate(4).toLocalDate() + "  |  Gender : "
-						+ rs.getString(5) + "  |  Identifying Mark : " + rs.getString(6) + "  |  First Arrest Date : "
-						+ rs.getDate(7).toLocalDate() + "  |  Arrested From Police Station Area : " + rs.getString(8);
+				un = "Criminal ID : " + rs.getString(1) + "\n" + "First Name : " + rs.getString(2) + "\n" + "Last Name : "
+						+ rs.getString(3) + "\n" + "Date of Birth : " + rs.getDate(4).toLocalDate() + "\n" + "Gender : "
+						+ rs.getString(5) + "\n" + "Identifying Mark : " + rs.getString(6) + "\n" + "First Arrest Date : "
+						+ rs.getDate(7).toLocalDate() + "\n" + "Arrested From Police Station Area : " + rs.getString(8) + "\n";
 				criminals.add(un);
 			}
 
