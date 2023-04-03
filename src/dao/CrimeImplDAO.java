@@ -222,9 +222,9 @@ public class CrimeImplDAO implements CrimeDAO {
 			String un = "";
 
 			while (rs.next()) {
-				un = "Crime Description : " + rs.getString(1) + "  |  Police Station Area : " + rs.getString(2)
-						+ "  |  Crime Date : " + rs.getDate(3).toLocalDate() + "  |  Complaint Date : "
-						+ rs.getDate(4).toLocalDate() + "  |  Victim Name : " + rs.getString(5);
+				un = "Crime Description : " + rs.getString(1) + "\n" + "Police Station Area : " + rs.getString(2) + "\n"
+						+ "Crime Date : " + rs.getDate(3).toLocalDate() + "\n" + "Complaint Date : "
+						+ rs.getDate(4).toLocalDate() + "\n" + "Victim Name : " + rs.getString(5) + "\n";
 				crime.add(un);
 			}
 			return crime;
@@ -264,10 +264,10 @@ public class CrimeImplDAO implements CrimeDAO {
 			String un = "";
 
 			while (rs.next()) {
-				un = "Crime ID : " + rs.getString(1) + "  |  Crime Type : " + rs.getString(2) + "  |  Crime Description : "
-						+ rs.getString(3) + "  |  Police Station Area : " + rs.getString(4) + "  |  Crime Date : "
-						+ rs.getDate(5).toLocalDate() + "  |  Complaint Date : " + rs.getDate(6).toLocalDate()
-						+ "  |  Victim Name : " + rs.getString(7);
+				un = "Crime ID : " + rs.getString(1) + "\n" + "Crime Type : " + rs.getString(2) + "\n"
+						+ "Crime Description : " + rs.getString(3) + "\n" + "Police Station Area : " + rs.getString(4)
+						+ "\n" + "Crime Date : " + rs.getDate(5).toLocalDate() + "\n" + "Complaint Date : "
+						+ rs.getDate(6).toLocalDate() + "\n" + "Victim Name : " + rs.getString(7) + "\n";
 				crime.add(un);
 			}
 			return crime;

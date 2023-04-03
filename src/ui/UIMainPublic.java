@@ -255,7 +255,7 @@ public class UIMainPublic {
 
 		do {
 			System.out.println();
-			System.out.println("|-----------------------------------------------------------------------------|");
+			System.out.println("+-----------------------------------------------------------------------------+");
 			System.out.println("|========================= Welcome to Public Portal ==========================|");
 			System.out.println("|-----------------------------------------------------------------------------|");
 			System.out.println("|  Select 1 to Display Total Crime From Each Police Station For a Date Range  |");
@@ -265,9 +265,9 @@ public class UIMainPublic {
 			System.out.println("|  Select 5 to File a New Complaint                                           |");
 			System.out.println("|  Select 6 to Change Your Password                                           |");
 			System.out.println("|  Select 0 to Log Out                                                        |");
-			System.out.println("|-----------------------------------------------------------------------------|");
+			System.out.println("+-----------------------------------------------------------------------------+");
 			System.out.println();
-			
+
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {
@@ -326,15 +326,15 @@ public class UIMainPublic {
 
 		do {
 			System.out.println();
-			System.out.println("|-------------------------------------|");
+			System.out.println("+-------------------------------------+");
 			System.out.println("|========= Log In / Sign Up ==========|");
 			System.out.println("|-------------------------------------|");
 			System.out.println("|  Select 1 to Sign Up                |");
 			System.out.println("|  Select 2 to Log In                 |");
 			System.out.println("|  Select 0 to Go to Previous Menu    |");
-			System.out.println("|-------------------------------------|");
+			System.out.println("+-------------------------------------+");
 			System.out.println();
-			
+
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {
