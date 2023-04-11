@@ -81,7 +81,7 @@ Create a New Database in MySQL: "crime_management"
 
 Go to the Project Directory
 ```bas
-Open the 'sensitive-stove-1526' Folder with STS
+Open the sensitive-stove-1526 Folder with STS
 ```   
 
 ## ER Diagram
