@@ -69,7 +69,7 @@ https://dev.mysql.com/downloads/mysql/
 
 Clone the Repository
 ```bash
-git clone https://github.com/sahu-neha/sensitive-stove-1526.git
+git clone https://github.com/sahu-neha/Crime-Information-Management-System.git
 ```
 
 Open MySQL Server
